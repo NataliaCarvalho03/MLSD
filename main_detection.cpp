@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
   clock_t processing_time = clock();
   for(int i = 0; i < nPictures; i++){
     cout << "picture " << i << ": " << picName[i] << endl;
-    Mat im = imread(picPath[i], CV_LOAD_IMAGE_GRAYSCALE);
+    Mat im = imread(picPath[i], IMREAD_GRAYSCALE);
     vector<Mat> imagePyramid = computeImagePyramid(im, multiscale);
   
     vector<Segment> segments = lsd_multiscale(imagePyramid, segment_length_threshold, multiscale);
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]){
   cout << "PROCESSED IN " << (clock() - processing_time) / float(CLOCKS_PER_SEC) << endl;
   
   for(int i = 0; i < nPictures; i++){
-    Mat im = imread(picPath[i], CV_LOAD_IMAGE_COLOR);
+    Mat im = imread(picPath[i], IMREAD_COLOR);
     vector<Segment> segments = readLines(dirPath, picName[i]+ext);
     saveLinesPicture(segments, im, dirPath, picName[i]+ext, false);
   }
