@@ -25,7 +25,7 @@ Requirement:
 
 - CMake (available for free at https://cmake.org/download/)
 
-- openCV (available for free at http://opencv.org/) > 2.x
+- openCV (available for free at http://opencv.org/) > 4.x
 
 - C++ compiler
 
